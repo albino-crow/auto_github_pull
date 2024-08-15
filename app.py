@@ -30,7 +30,7 @@ app.include_router(github_router)
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"start": "another"}
 
 
 
