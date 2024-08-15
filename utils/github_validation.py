@@ -12,7 +12,7 @@ def get_x_hub_signature_256(x_hub_signature_256: Optional[str] = Header(None)):
     return x_hub_signature_256 
 
 def validate_secret_key(body,key: str, singature_header: str):
-    hash_object = hmac.new(key.encode('utf-8'), msg=body.encode('utf-8'), digestmod=hashlib.sha256)
+    hash_object = hmac.new(key.encode('utf-8'), msg=body, digestmod=hashlib.sha256)
     expected_signature = "sha256=" + hash_object.hexdigest()
     if not hmac.compare_digest(expected_signature, singature_header):
         print("not match")
